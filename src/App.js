@@ -1,24 +1,57 @@
-import logo from './logo.svg';
+import { lazy, Suspense } from 'react'
+import { Hourglass } from 'react-loader-spinner';
 import './App.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+
+
+
+
+const Home = lazy(() => import('./components/home/home'));
+const LayOut = lazy(() => import('./components/layOut/LayOut'));
+const User = lazy(() => import('./components/users/user'));
+const Transactions = lazy(() => import('./components/transactions/transactions'));
+const ShowTransData = lazy(() => import('./components/transactions/showTransData'));
+const View = lazy(() => import('./components/viewData/view'));
+const NotFound = lazy(() => import('./components/notFound/NotFound'));
+
+
+
 
 function App() {
+  const routes = createBrowserRouter([
+    {
+      path: "", element: <LayOut/>, children: [
+        { index: true, element: <Home/> },
+
+
+        { path: "/user", element: <User /> },
+        { path: "/transaction", element: <Transactions /> },
+        { path: "/view/:id", element: <View /> },
+        { path: "/vi", element: <ShowTransData /> },
+        
+        
+        
+      {path:"*",element:<NotFound />},
+
+
+
+      ]
+    }
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div className=' d-flex justify-content-center align-items-center mt-5'><Hourglass
+      visible={true}
+      height="100"
+      width="100"
+      ariaLabel="hourglass-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      colors={['#306cce', '#72a1ed']}
+    /></div>}>
+      <RouterProvider router={routes} />
+    </Suspense>
   );
 }
 

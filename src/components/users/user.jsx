@@ -29,7 +29,7 @@ const User = () => {
     const handleEdit =(record) => {
         try {
             console.log('Editing record with ID:', record.id);
-            navigate("/view/"+record.id)
+            navigate("view/"+record.id)
           } catch (error) {
             console.error('Error in handleEdit:', error);
           }

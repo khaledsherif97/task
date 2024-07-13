@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktask=self.webpackChunktask||[]).push([[615],{8579:(s,a,c)=>{c.r(a),c.d(a,{default:()=>t});c(5043);const e=c.p+"static/media/NOT FOUND.c5550bb8570cb2a1c2b8.png";var d=c(579);const t=()=>(0,d.jsx)("div",{className:"w-50 mx-auto  rounded-4  shadow-lg",children:(0,d.jsx)("img",{src:e,className:"w-100  rounded-4 "})})}}]);
+//# sourceMappingURL=615.2c54d970.chunk.js.map

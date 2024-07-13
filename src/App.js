@@ -21,14 +21,14 @@ const NotFound = lazy(() => import('./components/notFound/NotFound'));
 function App() {
   const routes = createBrowserRouter([
     {
-      path: "task/", element: <LayOut/>, children: [
+      path: "", element: <LayOut/>, children: [
         { index: true, element: <Home/> },
 
 
-        { path: "user", element: <User /> },
-        { path: "transaction", element: <Transactions /> },
-        { path: "user/view/:id", element: <View /> },
-        { path: "vi", element: <ShowTransData /> },
+        { path: "/user", element: <User /> },
+        { path: "/transaction", element: <Transactions /> },
+        { path: "/view/:id", element: <View /> },
+        { path: "/vi", element: <ShowTransData /> },
         
         
         
